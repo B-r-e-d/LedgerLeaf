@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  @apply bg-white dark:bg-gray-950;
+
+  @media (prefers-color-scheme: dark) {
+    color-scheme: dark;
+  }
+}
+
+@layer base {
+  :root {
+    /* LedgerLeaf palette (dark-friendly) */
+    --background: 221 39% 11%;
+    --foreground: 220 14% 96%;
+
+    --card: 221 39% 13%;
+    --card-foreground: 220 14% 96%;
+
+    --popover: 221 39% 13%;
+    --popover-foreground: 220 14% 96%;
+
+    --primary: 160 84% 39%;
+    --primary-foreground: 220 14% 96%;
+
+    --secondary: 158 64% 52%;
+    --secondary-foreground: 220 14% 10%;
+
+    --muted: 221 39% 20%;
+    --muted-foreground: 220 14% 70%;
+
+    --accent: 158 64% 52%;
+    --accent-foreground: 220 14% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 220 14% 98%;
+
+    --border: 221 39% 20%;
+    --input: 221 39% 20%;
+    --ring: 160 84% 39%;
+
+    /* keep existing extras */
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --radius: 0.5rem;
+    --color-1: 0 100% 63%;
+    --color-2: 270 100% 63%;
+    --color-3: 210 100% 63%;
+    --color-4: 195 100% 63%;
+    --color-5: 90 100% 63%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Text output / prose styling */
+.text-output { color: hsl(var(--foreground)); }
+.text-output p { margin: 0.25rem 0 0.75rem; color: hsl(var(--foreground)); }
+.text-output strong { color: hsl(var(--foreground)); }
+.text-output em { color: hsl(var(--foreground)); }
+.text-output a { color: hsl(var(--primary)); text-decoration: underline; text-underline-offset: 2px; }
+.text-output h1, .text-output h2, .text-output h3, .text-output h4, .text-output h5, .text-output h6 {
+  color: hsl(var(--foreground));
+  margin: 1rem 0 0.5rem;
+  line-height: 1.25;
+  font-weight: 600;
+}
+.text-output ul, .text-output ol { margin: 0.5rem 0 0.75rem; padding-left: 1.25rem; }
+.text-output li { margin: 0.25rem 0; }
+.text-output ul > li::marker, .text-output ol > li::marker { color: hsl(var(--muted-foreground)); }
+.text-output blockquote {
+  color: hsl(var(--foreground));
+  border-left: 2px solid hsl(var(--border));
+  padding-left: 0.75rem; margin: 0.75rem 0;
+}
+.text-output hr { border-color: hsl(var(--border)); margin: 1rem 0; }
+.text-output code {
+  color: hsl(var(--foreground));
+  background: hsl(var(--muted));
+  border-radius: 0.25rem; padding: 0.125rem 0.375rem;
+}
+.text-output pre {
+  background: hsl(var(--muted));
+  color: hsl(var(--foreground));
+  border-radius: 0.5rem; padding: 0.75rem; overflow: auto;
+}
